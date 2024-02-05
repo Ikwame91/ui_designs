@@ -70,8 +70,15 @@ class _HomePageState extends State<HomePage> {
                 Text(
                   "Nana Kwame",
                   style: GoogleFonts.poppins(
-                    fontSize: 40,
+                    fontSize: 42,
                     fontWeight: FontWeight.bold,
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: horizontalpadding),
+                  child: Divider(
+                    color: Colors.grey[800],
+                    thickness: 1,
                   ),
                 ),
                 sizedBox,
@@ -86,8 +93,8 @@ class _HomePageState extends State<HomePage> {
           Expanded(
               child: GridView.builder(
                   itemCount: mySmartDevices.length,
-                  padding: EdgeInsets.all(5),
-                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  padding: const EdgeInsets.all(5),
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 2, childAspectRatio: 1 / 1.3),
                   itemBuilder: (context, index) {
                     return SmartDevices(

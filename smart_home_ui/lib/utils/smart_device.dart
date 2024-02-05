@@ -21,16 +21,17 @@ class SmartDevices extends StatelessWidget {
       child: Container(
         margin: const EdgeInsets.all(5),
         decoration: BoxDecoration(
-          color: Colors.grey[200],
+          color: powerOn ? Colors.grey[900] : Colors.white,
           borderRadius: BorderRadius.circular(20),
         ),
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 15),
+          padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 20),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Image.asset(
                 iconPath,
+                color: powerOn ? Colors.white : Colors.black,
                 height: 50,
               ),
               Row(
@@ -40,8 +41,9 @@ class SmartDevices extends StatelessWidget {
                     child: Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 10),
                       child: Text(deviceName,
-                          style: const TextStyle(
+                          style: TextStyle(
                             fontSize: 20,
+                            color: powerOn ? Colors.white : Colors.black,
                             fontWeight: FontWeight.bold,
                           )),
                     ),
