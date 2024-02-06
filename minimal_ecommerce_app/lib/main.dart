@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:minimal_ecommerce_app/pages/cart_page.dart';
 import 'package:minimal_ecommerce_app/pages/intro_page.dart';
+import 'package:minimal_ecommerce_app/pages/shop_page.dart';
 import 'package:minimal_ecommerce_app/themes/lightmode.dart';
 
 void main() {
@@ -7,7 +9,7 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  const MyApp({Key? key}) : super(key: key);
 
   // This widget is the root of your application.
   @override
@@ -16,7 +18,12 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: lightmode,
-      home: const IntroPage(),
+      initialRoute: '/intro_page',
+      routes: {
+        '/intro_page': (context) => const IntroPage(),
+        '/shop_page': (context) => const ShopPage(),
+        '/cart_page': (context) => const CartPage()
+      },
     );
   }
 }

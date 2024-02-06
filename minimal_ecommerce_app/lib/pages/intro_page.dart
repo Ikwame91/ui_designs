@@ -39,7 +39,9 @@ class IntroPage extends StatelessWidget {
               fontWeight: FontWeight.w300,
             ),
           ),
-          MyButton(child: const Icon(Icons.arrow_forward), onTap: () {}),
+          MyButton(
+              child: const Icon(Icons.arrow_forward),
+              onTap: () => Navigator.pushNamed(context, '/shop_page')),
         ],
       ),
     );
