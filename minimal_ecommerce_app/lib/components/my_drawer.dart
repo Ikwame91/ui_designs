@@ -40,14 +40,15 @@ class MyDrawer extends StatelessWidget {
             ],
           ),
           Padding(
-            padding: const EdgeInsets.symmetric(vertical: 20),
-            child: MyListTile(
-              icon: Icons.logout,
-              text: 'Exit',
-              onTap: () => Navigator.pushAndRemoveUntil(
-                  context, '/intro_page' as Route<Object?>, (route) => false),
-            ),
-          ),
+              padding: const EdgeInsets.symmetric(vertical: 20),
+              child: MyListTile(
+                icon: Icons.logout,
+                text: 'Exit',
+                onTap: () {
+                  Navigator.pop(context);
+                  Navigator.pushNamed(context, '/intro_page');
+                },
+              )),
         ],
       ),
     );
