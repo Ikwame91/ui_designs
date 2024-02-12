@@ -4,25 +4,35 @@ import 'package:minimal_ecommerce_app/models/product.dart';
 class Shop extends ChangeNotifier {
   final List<Product> _shop = [
     Product(
-      name: 'Product 1',
-      price: 99.99,
-      description: "An Intriguing product.....",
+      name: 'Elegant Dress',
+      price: 120.99,
+      description: "An elegant dress perfect for any occasion.",
+      imageDescription: 'assets/elegant_dress.jpg',
     ),
     Product(
-      name: 'Product 1',
-      price: 99.99,
-      description: "An Intriguing product.....",
+      imageDescription: 'assets/headphones.jpg',
+      name: 'Bluetooth Headphones',
+      price: 70.99,
+      description: "High-quality headphones with noise cancellation.",
     ),
     Product(
-      name: 'Product 1',
-      price: 99.99,
-      description: "An Intriguing product.....",
+      name: 'Elegant Jacket',
+      price: 85.50,
+      description: "Comfortable running Jacket with great support.",
+      imageDescription: 'assets/hoodie.jpg',
     ),
     Product(
-      name: 'Product 1',
-      price: 99.99,
-      description: "An Intriguing product.....",
-    )
+      name: 'Leather Wallet',
+      price: 45.00,
+      description: "A stylish leather wallet with multiple compartments.",
+      imageDescription: 'assets/watch.png',
+    ),
+    Product(
+      name: ' hoodie',
+      price: 45.00,
+      description: "A stylish leather wallet with multiple compartments.",
+      imageDescription: 'assets/hoodie.jpg',
+    ),
   ];
 
   //user cart
