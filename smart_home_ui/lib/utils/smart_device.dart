@@ -4,12 +4,13 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class SmartDevices extends StatelessWidget {
-  const SmartDevices(
-      {super.key,
-      required this.iconPath,
-      required this.deviceName,
-      required this.powerOn,
-      this.onChanged});
+  const SmartDevices({
+    super.key,
+    required this.iconPath,
+    required this.deviceName,
+    required this.powerOn,
+    this.onChanged,
+  });
   final String iconPath;
   final String deviceName;
   final bool powerOn;
