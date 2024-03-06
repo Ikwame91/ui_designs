@@ -1,5 +1,6 @@
 import 'package:calculator_app/buttons.dart';
 import 'package:flutter/material.dart';
+import 'package:math_expressions/math_expressions.dart';
 
 class Homepage extends StatefulWidget {
   const Homepage({super.key});
@@ -86,6 +87,7 @@ class _HomepageState extends State<Homepage> {
                             onTap: () {
                               setState(() {
                                 userQuestion = '';
+                                userAnswer = '';
                               });
                             },
                             color: Colors.green,
@@ -102,6 +104,16 @@ class _HomepageState extends State<Homepage> {
                               });
                             },
                             color: Colors.red,
+                            textColor: Colors.white,
+                            buttonText: buttons[index]);
+                      } else if (index == buttons.length - 1) {
+                        return MyButtons(
+                            onTap: () {
+                              setState(() {
+                                calculate();
+                              });
+                            },
+                            color: Colors.orange,
                             textColor: Colors.white,
                             buttonText: buttons[index]);
                       } else {
@@ -136,5 +148,20 @@ class _HomepageState extends State<Homepage> {
       return true;
     }
     return false;
+  }
+
+  void calculate() {
+    String finalQuestion = userQuestion;
+    finalQuestion = finalQuestion.replaceAll('x', '*');
+    finalQuestion = finalQuestion.replaceAll('%', '/100');
+    try {
+      Parser p = Parser();
+      Expression exp = p.parse(finalQuestion);
+      ContextModel cm = ContextModel();
+      double eval = exp.evaluate(EvaluationType.REAL, cm);
+      userAnswer = eval.toString();
+    } catch (e) {
+      userAnswer = 'Error';
+    }
   }
 }
