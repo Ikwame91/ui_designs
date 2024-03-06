@@ -9,6 +9,8 @@ class Homepage extends StatefulWidget {
 }
 
 class _HomepageState extends State<Homepage> {
+  var userQuestion = '';
+  var userAnswer = '';
   final List<String> buttons = [
     'C',
     'DEL',
@@ -38,7 +40,36 @@ class _HomepageState extends State<Homepage> {
       body: Column(
         children: <Widget>[
           Expanded(
-            child: Container(),
+            child: SizedBox(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: <Widget>[
+                  const SizedBox(
+                    height: 50,
+                  ),
+                  Container(
+                      padding: const EdgeInsets.all(20),
+                      alignment: Alignment.centerLeft,
+                      child: Text(
+                        userQuestion,
+                        style: const TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 20,
+                        ),
+                      )),
+                  Container(
+                      padding: const EdgeInsets.all(20),
+                      alignment: Alignment.centerRight,
+                      child: Text(
+                        userAnswer,
+                        style: const TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 20,
+                        ),
+                      )),
+                ],
+              ),
+            ),
           ),
           Expanded(
               flex: 2,
@@ -52,16 +83,34 @@ class _HomepageState extends State<Homepage> {
                     itemBuilder: (BuildContext context, int index) {
                       if (index == 0) {
                         return MyButtons(
+                            onTap: () {
+                              setState(() {
+                                userQuestion = '';
+                              });
+                            },
                             color: Colors.green,
                             textColor: Colors.white,
                             buttonText: buttons[index]);
                       } else if (index == 1) {
                         return MyButtons(
+                            onTap: () {
+                              setState(() {
+                                if (userQuestion.isNotEmpty) {
+                                  userQuestion = userQuestion.substring(
+                                      0, userQuestion.length - 1);
+                                }
+                              });
+                            },
                             color: Colors.red,
                             textColor: Colors.white,
                             buttonText: buttons[index]);
                       } else {
                         return MyButtons(
+                            onTap: () {
+                              setState(() {
+                                userQuestion += buttons[index];
+                              });
+                            },
                             color: isOperator(buttons[index])
                                 ? Colors.orange
                                 : Colors.white,
